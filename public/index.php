@@ -10,7 +10,13 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require '../vendor/autoload.php';
-require 'connectdb.php';
+//require 'connectdb.php';
+
+$dbhost = "us-cdbr-iron-east-01.cleardb.net";
+$dbuser = "b8bf691a2d6f07";
+$dbpass = "3d6e7d60";
+$dbname = "heroku_46764fcc10616c8";
+$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 $configuration = [
     'settings' => [
