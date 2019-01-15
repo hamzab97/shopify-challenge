@@ -12,12 +12,6 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require '../vendor/autoload.php';
 //require 'connectdb.php';
 
-$dbhost = "us-cdbr-iron-east-01.cleardb.net";
-$dbuser = "b8bf691a2d6f07";
-$dbpass = "3d6e7d60";
-$dbname = "heroku_46764fcc10616c8";
-$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
 $configuration = [
     'settings' => [
         'displayErrorDetails' => true,
@@ -29,20 +23,11 @@ $app = new \Slim\App($c);
 
 $app->get('/', function(){
     echo "Shopify challenge";
-    $query = 'SELECT * FROM Product';
-    $result = $mysqli->query($query); //execute query and obtain result
-    if (!$result){
-        die ("database query failed");
-    }
-    while ($row = mysqli_fetch_assoc($result)){ //store result in array
-        $data[] = $row;
-    }
-
-    echo json_encode($data); //display array in json format
 });
 
 $app->get('/books', function () {
-    $query = 'SELECT * FROM Product';
+    require_once ('connectdb.php');
+    $query = "SELECT * FROM Product";
     $result = $mysqli->query($query); //execute query and obtain result
     if (!$result){
         die ("database query failed");
