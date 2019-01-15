@@ -12,6 +12,13 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require '../vendor/autoload.php';
 require 'connectdb.php';
 
+$configuration = [
+    'settings' => [
+        'displayErrorDetails' => true,
+    ],
+];
+$c = new \Slim\Container($configuration);
+
 $app = new \Slim\App;
 
 $app->get('/', function(){
