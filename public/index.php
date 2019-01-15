@@ -14,6 +14,10 @@ require 'connectdb.php';
 
 $app = new \Slim\App;
 
+$app->get('/', function(){
+    echo "Shopify challenge";
+});
+
 $app->get('/api/books', function () {
     $query = 'SELECT * FROM Product';
     $result = $mysqli->query($query); //execute query and obtain result
