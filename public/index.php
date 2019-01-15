@@ -25,7 +25,7 @@ $app->get('/', function(){
     echo "Shopify challenge";
 });
 
-$app->get('/api/books', function () {
+$app->get('/books', function () {
     $query = 'SELECT * FROM Product';
     $result = $mysqli->query($query); //execute query and obtain result
     if (!$result){
@@ -39,32 +39,32 @@ $app->get('/api/books', function () {
 
 });
 
-$app->get('/api/{name}', function (array $args) {
-    $name = $args['name'];
-    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
-    $result = $mysqli->query($query); //execute query and obtain result
-    if (!$result){
-        die ("database query failed");
-    }
-    while ($row = mysqli_fetch_assoc($result)){ //store result in array
-        $data[] = $row;
-    }
-
-    echo json_encode($data); //display array in json format
-});
-
-$app->get('/api/purchase', function (array $args) {
-    $name = $args['name'];
-    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
-    $result = $mysqli->query($query); //execute query and obtain result
-    if (!$result){
-        die ("database query failed");
-    }
-    while ($row = mysqli_fetch_assoc($result)){ //store result in array
-        $data[] = $row;
-    }
-
-    echo json_encode($data); //display array in json format
-});
+//$app->get('/api/{name}', function (array $args) {
+//    $name = $args['name'];
+//    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
+//    $result = $mysqli->query($query); //execute query and obtain result
+//    if (!$result){
+//        die ("database query failed");
+//    }
+//    while ($row = mysqli_fetch_assoc($result)){ //store result in array
+//        $data[] = $row;
+//    }
+//
+//    echo json_encode($data); //display array in json format
+//});
+//
+//$app->get('/api/purchase', function (array $args) {
+//    $name = $args['name'];
+//    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
+//    $result = $mysqli->query($query); //execute query and obtain result
+//    if (!$result){
+//        die ("database query failed");
+//    }
+//    while ($row = mysqli_fetch_assoc($result)){ //store result in array
+//        $data[] = $row;
+//    }
+//
+//    echo json_encode($data); //display array in json format
+//});
 
 $app->run();
