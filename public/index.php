@@ -19,7 +19,7 @@ $configuration = [
 ];
 $c = new \Slim\Container($configuration);
 
-$app = new \Slim\App;
+$app = new \Slim\App($c);
 
 $app->get('/', function(){
     echo "Shopify challenge";
