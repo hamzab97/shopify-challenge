@@ -40,21 +40,25 @@ $app->get('/books', function () {
 
 });
 
-//$app->get('/api/{name}', function (array $args) {
-//    $name = $args['name'];
-//    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
-//    $result = $mysqli->query($query); //execute query and obtain result
-//    if (!$result){
-//        die ("database query failed");
-//    }
-//    while ($row = mysqli_fetch_assoc($result)){ //store result in array
-//        $data[] = $row;
-//    }
+$app->get('/book/{name}', function (array $args) {
+    require_once ('connectdb.php');
+
+    $name = $args['name'];
+    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
+    $result = $mysqli->query($query); //execute query and obtain result
+    if (!$result){
+        die ("database query failed");
+    }
+    while ($row = mysqli_fetch_assoc($result)){ //store result in array
+        $data[] = $row;
+    }
+
+    echo json_encode($data); //display array in json format
+});
+
+//$app->get('/purchase/{name}', function (array $args) {
+//    require_once ('connectdb.php');
 //
-//    echo json_encode($data); //display array in json format
-//});
-//
-//$app->get('/api/purchase', function (array $args) {
 //    $name = $args['name'];
 //    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
 //    $result = $mysqli->query($query); //execute query and obtain result
