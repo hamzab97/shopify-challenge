@@ -70,7 +70,7 @@ $app->get('/purchase/{name}', function ($request) {
     if (!$result){//if query fails means that there was no such book in stock
         die ("No more quantity left for book");
     }
-    $row = mysqli_fetch_assoc($result)
+    $row = mysqli_fetch_assoc($result);
 
     echo $row; //display array in json format
     echo data["inventory_count"];
