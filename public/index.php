@@ -44,35 +44,63 @@ $app->get('/books', function () {
 });
 
 $app->get('/book/{name}', function ($request) {
-//    require_once ('connectdb.php');
+    require_once ('connectdb.php');
     $name = $request->getAttribute('name');
-    echo $name;
-//    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
-//    $result = $mysqli->query($query); //execute query and obtain result
-//    if (!$result){
-//        die ("database query failed");
-//    }
-//    while ($row = mysqli_fetch_assoc($result)){ //store result in array
-//        $data[] = $row;
-//    }
-//
-//    echo json_encode($data); //display array in json format
+//    echo $name;
+    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
+    $result = $mysqli->query($query); //execute query and obtain result
+    if (!$result){
+        die ("database query failed");
+    }
+    while ($row = mysqli_fetch_assoc($result)){ //store result in array
+        $data[] = $row;
+    }
+
+    echo json_encode($data); //display array in json format
 });
 
-//$app->get('/purchase/{name}', function (array $args) {
-//    require_once ('connectdb.php');
-//
-//    $name = $args['name'];
-//    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
-//    $result = $mysqli->query($query); //execute query and obtain result
-//    if (!$result){
-//        die ("database query failed");
-//    }
-//    while ($row = mysqli_fetch_assoc($result)){ //store result in array
-//        $data[] = $row;
-//    }
-//
-//    echo json_encode($data); //display array in json format
-//});
+$app->get('/purchase/{name}', function ($request) {
+    require_once ('connectdb.php');
+    $name = $request->getAttribute('name');
+    echo $name;
+    echo PHP_EOL;
+    $query = 'SELECT price FROM Product WHERE title = "' . $name . '"'; //get price of book
+    $result = $mysqli->query($query); //execute query and obtain result
+
+    if (!$result){//if query fails means that there was no such book in stock
+        die ("No more quantity left for book");
+    }
+    while ($row = mysqli_fetch_assoc($result)){ //store result in array
+        $data[] = $row;
+    }
+
+    echo json_encode($data); //display array in json format
+
+    $quantity = $result - 1;
+
+    if ($quantity == 0){
+        $query = 'DELETE FROM Product WHERE title = "'. $name .'"';
+        $result = $mysqli->query($query);
+        if (!$result){//if query fails means that there was no such book in stock
+            die ("delete from db query failed to execute");
+        }
+        else{
+            echo PHP_EOL;
+            echo "product removed from database. no more quantity left";
+        }
+    }
+    else{
+        $query = 'UPDATE Product SET inventory_count = "'. $quantity. '" WHERE title ="'. $name .'"';
+        $result = $mysqli->query($query);
+        if (!$result){//if query fails means that there was no such book in stock
+            die ("update product inventory count query failed");
+        }
+        else{
+            echo PHP_EOL;
+            echo "product quantity was updated in the database. remaining: ";
+            echo $quantity;
+        }
+    }
+});
 
 $app->run();
