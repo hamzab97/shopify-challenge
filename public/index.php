@@ -43,7 +43,7 @@ $app->get('/books', function () {
 
 });
 
-$app->get('/book/{name}', function (array $args) {
+$app->get('/book/{name}', function ($args) {
     require_once ('connectdb.php');
 
     $name = $args['name'];
