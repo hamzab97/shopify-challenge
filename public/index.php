@@ -64,7 +64,7 @@ $app->get('/purchase/{name}', function ($request) {
     $name = $request->getAttribute('name');
     echo $name;
     echo PHP_EOL;
-    $query = 'SELECT quantity FROM Product WHERE title = "' . $name . '"'; //get price of book
+    $query = 'SELECT inventory_count FROM Product WHERE title = "' . $name . '"'; //get price of book
     $result = $mysqli->query($query); //execute query and obtain result
 
     if (!$result){//if query fails means that there was no such book in stock
