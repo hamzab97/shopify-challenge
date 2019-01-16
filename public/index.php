@@ -23,6 +23,9 @@ $app = new \Slim\App($c);
 
 $app->get('/', function(){
     echo "Shopify challenge";
+    echo "enter path /index.php/books to retrieve information on all items";
+    echo "enter path /index.php/book/{name} to retrieve info on book 'name'";
+    echo "enter path /index.php/purchase/{name} to purchase book 'name'";
 });
 
 $app->get('/books', function () {
@@ -45,16 +48,16 @@ $app->get('/book/{name}', function (array $args) {
 
     $name = $args['name'];
     echo $name;
-//    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
-//    $result = $mysqli->query($query); //execute query and obtain result
-//    if (!$result){
-//        die ("database query failed");
-//    }
-//    while ($row = mysqli_fetch_assoc($result)){ //store result in array
-//        $data[] = $row;
-//    }
-//
-//    echo json_encode($data); //display array in json format
+    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
+    $result = $mysqli->query($query); //execute query and obtain result
+    if (!$result){
+        die ("database query failed");
+    }
+    while ($row = mysqli_fetch_assoc($result)){ //store result in array
+        $data[] = $row;
+    }
+
+    echo json_encode($data); //display array in json format
 });
 
 //$app->get('/purchase/{name}', function (array $args) {
