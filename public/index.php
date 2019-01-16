@@ -64,7 +64,7 @@ $app->get('/purchase/{name}', function ($request) {
     $name = $request->getAttribute('name');
     echo $name;
     echo PHP_EOL;
-    $query = 'SELECT price FROM Product WHERE title = "' . $name . '"'; //get price of book
+    $query = 'SELECT quantity FROM Product WHERE title = "' . $name . '"'; //get price of book
     $result = $mysqli->query($query); //execute query and obtain result
 
     if (!$result){//if query fails means that there was no such book in stock
@@ -75,7 +75,7 @@ $app->get('/purchase/{name}', function ($request) {
     }
 
     echo json_encode($data); //display array in json format
-    echo $result;
+    echo data["quantity"];
 //    $quantity = $result - 1;
 //
 //    if ($quantity == 0){
