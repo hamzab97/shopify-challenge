@@ -43,10 +43,9 @@ $app->get('/books', function () {
 
 });
 
-$app->get('/book/{name}', function ($args) {
+$app->get('/book/{name}', function ($name) {
     require_once ('connectdb.php');
 
-    $name = $args['name'];
     echo $name;
     $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
     $result = $mysqli->query($query); //execute query and obtain result
