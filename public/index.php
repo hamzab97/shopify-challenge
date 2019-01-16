@@ -22,10 +22,10 @@ $c = new \Slim\Container($configuration);
 $app = new \Slim\App($c);
 
 $app->get('/', function(){
-    echo "Shopify challenge";
-    echo "enter path /index.php/books to retrieve information on all items";
-    echo "enter path /index.php/book/{name} to retrieve info on book 'name'";
-    echo "enter path /index.php/purchase/{name} to purchase book 'name'";
+    echo "Shopify challenge <br>";
+    echo "enter path /index.php/books to retrieve information on all items <br>";
+    echo "enter path /index.php/book/{name} to retrieve info on book 'name' <br>";
+    echo "enter path /index.php/purchase/{name} to purchase book 'name' <br>";
 });
 
 $app->get('/books', function () {
