@@ -46,7 +46,7 @@ $app->get('/books', function () {
 $app->get('/book/{name}', function ($request) {
     require_once ('connectdb.php');
     $name = $request->getAttribute('name');
-//    echo $name;
+    echo $name;
     $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
     $result = $mysqli->query($query); //execute query and obtain result
     if (!$result){
