@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48b5ef80-ce88-4562-882b-6b323c67b58b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +128,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547492510576</updated>
-      <workItem from="1547492512195" duration="7237000" />
+      <workItem from="1547492512195" duration="7407000" />
     </task>
     <task id="LOCAL-00001" summary="root updated">
       <created>1547574892497</created>
@@ -236,11 +235,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547654477005</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="htaccess deleted">
+      <created>1547654615628</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1547654615628</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7237000" />
+    <option name="totallyTimeSpent" value="7407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="781" y="23" width="899" height="947" extended-state="0" />
