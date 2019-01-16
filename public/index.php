@@ -75,7 +75,7 @@ $app->get('/purchase/{name}', function ($request) {
     }
 
     echo json_encode($data); //display array in json format
-    echo data["quantity"];
+    echo data["inventory_count"];
 //    $quantity = $result - 1;
 //
 //    if ($quantity == 0){
