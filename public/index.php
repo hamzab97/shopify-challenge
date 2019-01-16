@@ -46,7 +46,7 @@ $app->get('/books', function () {
 $app->get('/book/{name}', function ($request) {
     require_once ('connectdb.php');
     $name = $request->getAttribute('name');
-    echo $name;
+//    echo $name;
     $query = 'SELECT * FROM Product WHERE title = "' . $name . '"';
     $result = $mysqli->query($query); //execute query and obtain result
     if (!$result){
@@ -75,32 +75,32 @@ $app->get('/purchase/{name}', function ($request) {
     }
 
     echo json_encode($data); //display array in json format
-
-    $quantity = $result - 1;
-
-    if ($quantity == 0){
-        $query = 'DELETE FROM Product WHERE title = "'. $name .'"';
-        $result = $mysqli->query($query);
-        if (!$result){//if query fails means that there was no such book in stock
-            die ("delete from db query failed to execute");
-        }
-        else{
-            echo PHP_EOL;
-            echo "product removed from database. no more quantity left";
-        }
-    }
-    else{
-        $query = 'UPDATE Product SET inventory_count = "'. $quantity. '" WHERE title ="'. $name .'"';
-        $result = $mysqli->query($query);
-        if (!$result){//if query fails means that there was no such book in stock
-            die ("update product inventory count query failed");
-        }
-        else{
-            echo PHP_EOL;
-            echo "product quantity was updated in the database. remaining: ";
-            echo $quantity;
-        }
-    }
+    echo $result;
+//    $quantity = $result - 1;
+//
+//    if ($quantity == 0){
+//        $query = 'DELETE FROM Product WHERE title = "'. $name .'"';
+//        $result = $mysqli->query($query);
+//        if (!$result){//if query fails means that there was no such book in stock
+//            die ("delete from db query failed to execute");
+//        }
+//        else{
+//            echo PHP_EOL;
+//            echo "product removed from database. no more quantity left";
+//        }
+//    }
+//    else{
+//        $query = 'UPDATE Product SET inventory_count = "'. $quantity. '" WHERE title ="'. $name .'"';
+//        $result = $mysqli->query($query);
+//        if (!$result){//if query fails means that there was no such book in stock
+//            die ("update product inventory count query failed");
+//        }
+//        else{
+//            echo PHP_EOL;
+//            echo "product quantity was updated in the database. remaining: ";
+//            echo $quantity;
+//        }
+//    }
 });
 
 $app->run();
