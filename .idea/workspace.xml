@@ -30,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+            <state relative-caret-position="289">
+              <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
               <folding>
                 <element signature="e#93#149#0#PHP" expanded="true" />
               </folding>
@@ -143,7 +143,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547492510576</updated>
-      <workItem from="1547492512195" duration="12189000" />
+      <workItem from="1547492512195" duration="12542000" />
     </task>
     <task id="LOCAL-00001" summary="root updated">
       <created>1547574892497</created>
@@ -369,11 +369,25 @@
       <option name="project" value="LOCAL" />
       <updated>1547740452192</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="htaccess deleted">
+      <created>1547743275972</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1547743275972</updated>
+    </task>
+    <task id="LOCAL-00034" summary="htaccess deleted">
+      <created>1547743603844</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1547743603844</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12189000" />
+    <option name="totallyTimeSpent" value="12542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="781" y="23" width="899" height="947" extended-state="0" />
@@ -439,8 +453,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+        <state relative-caret-position="289">
+          <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
           <folding>
             <element signature="e#93#149#0#PHP" expanded="true" />
           </folding>

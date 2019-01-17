@@ -69,7 +69,7 @@ $app->get('/purchase/{name}', function ($request) {
         die ("No more quantity left for book");
     }
     $row = mysqli_fetch_assoc($result);
-
+    echo $row;
     $data = json_decode($row, true);
     echo $data->inventory_count;
     echo PHP_EOL;
