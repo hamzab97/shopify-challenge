@@ -72,7 +72,7 @@ $app->get('/purchase/{name}', function ($request) {
     }
     $row = mysqli_fetch_assoc($result);
 
-    echo $row; //display array in json format
+    $data = json_decode($row, true);
     echo data["inventory_count"];
 //    $quantity = $result - 1;
 //
