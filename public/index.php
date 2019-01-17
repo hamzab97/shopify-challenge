@@ -62,7 +62,7 @@ $app->get('/book/{name}', function ($request) {
 $app->get('/purchase/{name}', function ($request) {
     require_once ('connectdb.php');
     $name = $request->getAttribute('name');
-    $query = 'SELECT inventory_count FROM Product WHERE title = "' . $name . '"'; //get price of book
+    $query = 'SELECT * FROM Product WHERE title = "' . $name . '"'; //get price of book
     $result = $mysqli->query($query); //execute query and obtain result
 
     if (!$result){//if query fails means that there was no such book in stock
