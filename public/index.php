@@ -26,6 +26,7 @@ function helloWorld(){
     echo "enter path /index.php/books to retrieve information on all items <br>";
     echo "enter path /index.php/book/{name} to retrieve info on book 'name' <br>";
     echo "enter path /index.php/purchase/{name} to purchase book 'name' <br>";
+    echo PHP_EOL;
 }
 
 $app->get('/', function(){
@@ -76,7 +77,7 @@ $app->get('/purchase/{name}', function ($request) {
         die ("No more quantity left for book");
     }
     $row = mysqli_fetch_assoc($result);
-    $data = json_decode($row);
+    $data = json_decode($row, true);
     echo $data[0]["inventory_count"];
 //    $quantity = $result - 1;
 //
