@@ -70,7 +70,7 @@ $app->get('/purchase/{name}', function ($request) {
     }
     $row = mysqli_fetch_assoc($result);
     echo $row;
-    $data = json_encode($row, true);
+    $data = json_encode($row);
     echo $data->inventory_count;
 //    $quantity = $result - 1;
 //
