@@ -62,8 +62,6 @@ $app->get('/book/{name}', function ($request) {
 $app->get('/purchase/{name}', function ($request) {
     require_once ('connectdb.php');
     $name = $request->getAttribute('name');
-    echo $name;
-    echo PHP_EOL;
     $query = 'SELECT inventory_count FROM Product WHERE title = "' . $name . '"'; //get price of book
     $result = $mysqli->query($query); //execute query and obtain result
 
@@ -74,6 +72,8 @@ $app->get('/purchase/{name}', function ($request) {
 
     $data = json_decode($row, true);
     echo $data->inventory_count;
+    echo PHP_EOL;
+    echo $data;
     echo PHP_EOL;
     echo "hello";
 //    $quantity = $result - 1;
