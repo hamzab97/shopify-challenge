@@ -21,14 +21,19 @@ $c = new \Slim\Container($configuration);
 
 $app = new \Slim\App($c);
 
-$app->get('/', function(){
+function helloWorld(){
     echo "Shopify challenge <br>";
     echo "enter path /index.php/books to retrieve information on all items <br>";
     echo "enter path /index.php/book/{name} to retrieve info on book 'name' <br>";
     echo "enter path /index.php/purchase/{name} to purchase book 'name' <br>";
+}
+
+$app->get('/', function(){
+    helloWorld();
 });
 
 $app->get('/books', function () {
+    helloWorld();
     require_once ('connectdb.php');
     $query = "SELECT * FROM Product";
     $result = $mysqli->query($query); //execute query and obtain result
@@ -44,6 +49,7 @@ $app->get('/books', function () {
 });
 
 $app->get('/book/{name}', function ($request) {
+    helloWorld();
     require_once ('connectdb.php');
     $name = $request->getAttribute('name');
 //    echo $name;
@@ -60,6 +66,7 @@ $app->get('/book/{name}', function ($request) {
 });
 
 $app->get('/purchase/{name}', function ($request) {
+    helloWorld();
     require_once ('connectdb.php');
     $name = $request->getAttribute('name');
     $query = 'SELECT * FROM Product WHERE title = "' . $name . '"'; //get price of book
