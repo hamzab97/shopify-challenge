@@ -70,12 +70,8 @@ $app->get('/purchase/{name}', function ($request) {
     }
     $row = mysqli_fetch_assoc($result);
     echo $row;
-    $data = json_decode($row, true);
+    $data = json_encode($row, true);
     echo $data->inventory_count;
-    echo PHP_EOL;
-    echo $data;
-    echo PHP_EOL;
-    echo "hello";
 //    $quantity = $result - 1;
 //
 //    if ($quantity == 0){
