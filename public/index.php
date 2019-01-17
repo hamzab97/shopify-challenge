@@ -74,6 +74,8 @@ $app->get('/purchase/{name}', function ($request) {
 
     $data = json_decode($row, true);
     echo $data->inventory_count;
+    echo PHP_EOL;
+    echo "hello";
 //    $quantity = $result - 1;
 //
 //    if ($quantity == 0){
