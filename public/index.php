@@ -77,7 +77,7 @@ $app->get('/purchase/{name}', function ($request) {
         die ("No more quantity left for book");
     }
     $row = mysqli_fetch_assoc($result);
-    $quantity = number_format(row["inventory_count"]) - 1;
+    $quantity = number_format($row["inventory_count"]) - 1;
     echo $quantity;
 //    if ($quantity == 0){
 //        $query = 'DELETE FROM Product WHERE title = "'. $name .'"';
