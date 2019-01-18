@@ -79,29 +79,29 @@ $app->get('/purchase/{name}', function ($request) {
     $row = mysqli_fetch_assoc($result);
     $quantity = number_format($row["inventory_count"]) - 1;
     echo $quantity;
-//    if ($quantity == 0){
-//        $query = 'DELETE FROM Product WHERE title = "'. $name .'"';
-//        $result = $mysqli->query($query);
-//        if (!$result){//if query fails means that there was no such book in stock
-//            die ("delete from db query failed to execute");
-//        }
-//        else{
-//            echo PHP_EOL;
-//            echo "product removed from database. no more quantity left";
-//        }
-//    }
-//    else{
-//        $query = 'UPDATE Product SET inventory_count = "'. $quantity. '" WHERE title ="'. $name .'"';
-//        $result = $mysqli->query($query);
-//        if (!$result){//if query fails means that there was no such book in stock
-//            die ("update product inventory count query failed");
-//        }
-//        else{
-//            echo PHP_EOL;
-//            echo "product quantity was updated in the database. remaining: ";
-//            echo $quantity;
-//        }
-//    }
+    if ($quantity == 0){
+        $query = 'DELETE FROM Product WHERE title = "'. $name .'"';
+        $result = $mysqli->query($query);
+        if (!$result){//if query fails means that there was no such book in stock
+            die ("delete from db query failed to execute");
+        }
+        else{
+            echo PHP_EOL;
+            echo "product removed from database. no more quantity left";
+        }
+    }
+    else{
+        $query = 'UPDATE Product SET inventory_count = "'. $quantity. '" WHERE title ="'. $name .'"';
+        $result = $mysqli->query($query);
+        if (!$result){//if query fails means that there was no such book in stock
+            die ("update product inventory count query failed");
+        }
+        else{
+            echo PHP_EOL;
+            echo "product quantity was updated in the database. remaining: ";
+            echo $quantity;
+        }
+    }
 });
 
 $app->run();
