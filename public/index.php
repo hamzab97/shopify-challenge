@@ -27,6 +27,7 @@ function helloWorld(){
     echo "enter path /index.php/book/{name} to retrieve info on book 'name' <br>";
     echo "enter path /index.php/purchase/{name} to purchase book 'name' <br>";
     echo PHP_EOL;
+    echo PHP_EOL;
 }
 
 $app->get('/', function(){
@@ -78,6 +79,8 @@ $app->get('/purchase/{name}', function ($request) {
     }
     $row = mysqli_fetch_assoc($result);
     $quantity = number_format($row["inventory_count"]) - 1;
+    echo $name;
+    echo " purchased. quantity now changed to ";
     echo $quantity;
     if ($quantity == 0){
         $query = 'DELETE FROM Product WHERE title = "'. $name .'"';
